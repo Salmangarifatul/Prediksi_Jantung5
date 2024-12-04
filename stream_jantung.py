@@ -9,7 +9,7 @@ try:
     scaler = pickle.load(open('scaler.sav', 'rb'))
 except Exception as e:
     st.error(f"Error loading model or scaler: {e}")
-    st.stop()
+    st.stop()
 
 # Fungsi untuk menambahkan latar belakang
 def set_background_image(image_path):
@@ -47,73 +47,66 @@ st.markdown("---")
 st.markdown("### Input Data")
 col1, col2 = st.columns(2)
 
-with col1 :
-    age = st.text_input ('Input age')
+# Input fields
+with col1:
+    age = st.text_input('Input age')
 
-with col2 :
-    anaemia = st.text_input ('Input Nilai anaemia')
+with col2:
+    anaemia = st.text_input('Input Nilai anaemia')
 
-with col1 :
-    creatinine_phosphokinase = st.text_input ('Input Nilai creatinine_phosphokinase')
+with col1:
+    creatinine_phosphokinase = st.text_input('Input Nilai creatinine_phosphokinase')
 
-with col2 :
-    diabetes = st.text_input ('Input Nilai diabetes')
+with col2:
+    diabetes = st.text_input('Input Nilai diabetes')
 
-with col1 :
-    ejection_fraction = st.text_input ('Input Nilai ejection_fraction')
+with col1:
+    ejection_fraction = st.text_input('Input Nilai ejection_fraction')
 
-with col2 :
-    high_blood_pressure = st.text_input ('Input Nilai high_blood_pressure')
+with col2:
+    high_blood_pressure = st.text_input('Input Nilai high_blood_pressure')
 
-with col1 :
-    platelets = st.text_input ('Input Nilai platelets')
+with col1:
+    platelets = st.text_input('Input Nilai platelets')
 
-with col2 :
-    serum_creatinine = st.text_input ('Input Nilai serum_creatinine')
+with col2:
+    serum_creatinine = st.text_input('Input Nilai serum_creatinine')
 
-with col1 :
-    serum_sodium = st.text_input ('Input Nilai serum_sodium')
+with col1:
+    serum_sodium = st.text_input('Input Nilai serum_sodium')
 
-with col2 :
-    sex = st.text_input ('Input Nilai sex')
+with col2:
+    sex = st.text_input('Input Nilai sex')
 
-with col1 :
-    smoking = st.text_input ('Input Nilai smoking')
+with col1:
+    smoking = st.text_input('Input Nilai smoking')
 
-with col2 :
-    time = st.text_input ('Input Nilai time')
+with col2:
+    time = st.text_input('Input Nilai time')
     
 # Divider
 st.markdown("---")
 
-# code untuk prediksi
-jantung_diagnosis = ''
-
-# membuat tombol untuk prediksi
-st.markdown("<h3 style='text-align: center;'>Hasil Prediksi</h3>", unsafe_allow_html=True)
+# Prediksi
 if st.button('🔍 Prediksi Penyakit Jantung'):
     try:
-        # Konversi input menjadi float dan numerik
         input_data = [
             float(age), 
-            int(anaemia.split(':')[0]), 
+            float(anaemia), 
             float(creatinine_phosphokinase), 
-            int(diabetes.split(':')[0]), 
+            float(diabetes), 
             float(ejection_fraction), 
-            int(high_blood_pressure.split(':')[0]),
+            float(high_blood_pressure),
             float(platelets), 
             float(serum_creatinine), 
             float(serum_sodium), 
-            int(sex.split(':')[0]), 
-            int(smoking.split(':')[0]), 
+            float(sex), 
+            float(smoking), 
             float(time)
         ]
 
-        # Konversi ke array 2D
-        input_data = np.array(input_data).reshape(1, -1)
-
         # Normalisasi data menggunakan scaler
-        input_data_scaled = scaler.transform(input_data)
+        input_data_scaled = scaler.transform(np.array(input_data).reshape(1, -1))
 
         # Prediksi menggunakan model
         jantung_prediction = jantung_model.predict(input_data_scaled)
@@ -122,9 +115,6 @@ if st.button('🔍 Prediksi Penyakit Jantung'):
             st.success('✅ Pasien terkena penyakit jantung.')
         else:
             st.success('❌ Pasien tidak terkena penyakit jantung.')
-
-        # Tampilkan hasil
-        st.success(jantung_diagnosis)
 
     except ValueError as e:
         st.error(f"Input tidak valid: {e}")
