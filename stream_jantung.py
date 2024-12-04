@@ -41,6 +41,20 @@ st.markdown("<p style='text-align: center;'>Gunakan alat ini untuk memprediksi k
 # Divider
 st.markdown("---")
 
+# Menambahkan CSS untuk kolom input agar latar belakang putih dan font hitam
+st.markdown("""
+    <style>
+        .css-1v3fvcr {  /* CSS untuk kolom input */
+            background-color: white !important;
+            color: black !important;
+        }
+        .stTextInput input {
+            background-color: white !important;
+            color: black !important;
+        }
+    </style>
+""", unsafe_allow_html=True)
+
 # Input data
 st.markdown("### Input Data")
 col1, col2 = st.columns(2)
