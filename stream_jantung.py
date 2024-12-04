@@ -34,6 +34,7 @@ def set_background_image(image_url):
 image_url = 'https://raw.githubusercontent.com/Salmangarifatul/Prediksi_Jantung5/main/stethoscope-with-copy-space.jpg'
 set_background_image(image_url)
 
+# Menambahkan CSS untuk teks hitam, kolom input putih, dan judul hitam
 st.markdown("""
     <style>
         .stApp {
@@ -45,6 +46,9 @@ st.markdown("""
         }
         .stTextInput input {
             background-color: white !important;
+            color: black !important;
+        }
+        h1, h2, h3 {  /* Mengatur warna font judul menjadi hitam */
             color: black !important;
         }
     </style>
@@ -63,40 +67,40 @@ col1, col2 = st.columns(2)
 
 # Input fields dengan number_input
 with col1 :
-    age = st.text_input ('Input age')
+    age = st.text_input('Input age')
 
 with col2 :
-    anaemia = st.text_input ('Input Nilai anaemia')
+    anaemia = st.text_input('Input Nilai anaemia')
 
 with col1 :
-    creatinine_phosphokinase = st.text_input ('Input Nilai creatinine_phosphokinase')
+    creatinine_phosphokinase = st.text_input('Input Nilai creatinine_phosphokinase')
 
 with col2 :
-    diabetes = st.text_input ('Input Nilai diabetes')
+    diabetes = st.text_input('Input Nilai diabetes')
 
 with col1 :
-    ejection_fraction = st.text_input ('Input Nilai ejection_fraction')
+    ejection_fraction = st.text_input('Input Nilai ejection_fraction')
 
 with col2 :
-    high_blood_pressure = st.text_input ('Input Nilai high_blood_pressure')
+    high_blood_pressure = st.text_input('Input Nilai high_blood_pressure')
 
 with col1 :
-    platelets = st.text_input ('Input Nilai platelets')
+    platelets = st.text_input('Input Nilai platelets')
 
 with col2 :
-    serum_creatinine = st.text_input ('Input Nilai serum_creatinine')
+    serum_creatinine = st.text_input('Input Nilai serum_creatinine')
 
 with col1 :
-    serum_sodium = st.text_input ('Input Nilai serum_sodium')
+    serum_sodium = st.text_input('Input Nilai serum_sodium')
 
 with col2 :
-    sex = st.text_input ('Input Nilai sex')
+    sex = st.text_input('Input Nilai sex')
 
 with col1 :
-    smoking = st.text_input ('Input Nilai smoking')
+    smoking = st.text_input('Input Nilai smoking')
 
 with col2 :
-    time = st.text_input ('Input Nilai time')
+    time = st.text_input('Input Nilai time')
     
 # Divider
 st.markdown("---")
