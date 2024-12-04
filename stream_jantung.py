@@ -66,7 +66,7 @@ st.markdown("""
             font-weight: bold !important;  /* Menebalkan font */
             padding: 10px !important;  /* Memberikan padding di sekitar teks */
             border-radius: 8px !important;  /* Membuat sudutnya melengkung */
-            background-color: white !important; /* Warna putih untuk kotakan */
+            background-color: black !important; /* Warna putih untuk kotakan */
         }
         /* Warna teks di dalam hasil prediksi */
         .stSuccess > div, .stError > div {
