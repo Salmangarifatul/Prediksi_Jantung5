@@ -34,16 +34,11 @@ def set_background_image(image_url):
 image_url = 'https://raw.githubusercontent.com/Salmangarifatul/Prediksi_Jantung5/main/stethoscope-with-copy-space.jpg'
 set_background_image(image_url)
 
-# Judul web
-st.markdown("<h1 style='text-align: center; color: red;'>🫀 Prediksi Penyakit Jantung 🫀</h1>", unsafe_allow_html=True)
-st.markdown("<p style='text-align: center;'>Gunakan alat ini untuk memprediksi kemungkinan terkena penyakit jantung berdasarkan data medis.</p>", unsafe_allow_html=True)
-
-# Divider
-st.markdown("---")
-
-# Menambahkan CSS untuk kolom input agar latar belakang putih dan font hitam
 st.markdown("""
     <style>
+        .stApp {
+            color: black !important;  /* Mengatur warna teks di seluruh aplikasi menjadi hitam */
+        }
         .css-1v3fvcr {  /* CSS untuk kolom input */
             background-color: white !important;
             color: black !important;
@@ -54,6 +49,13 @@ st.markdown("""
         }
     </style>
 """, unsafe_allow_html=True)
+
+# Judul web
+st.markdown("<h1 style='text-align: center; color: red;'>🫀 Prediksi Penyakit Jantung 🫀</h1>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center;'>Gunakan alat ini untuk memprediksi kemungkinan terkena penyakit jantung berdasarkan data medis.</p>", unsafe_allow_html=True)
+
+# Divider
+st.markdown("---")
 
 # Input data
 st.markdown("### Input Data")
