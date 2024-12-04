@@ -55,30 +55,26 @@ st.markdown("""
         .stTextInput label {
             color: black !important;  /* Mengatur warna label input menjadi hitam */
         }
-        /* CSS untuk kolom prediksi agar latar belakangnya putih */
+        /* CSS untuk tombol prediksi agar tampilannya konsisten */
         .stButton > button {
             background-color: white !important;
             color: black !important;
             border: 2px solid #ddd !important;
         }
-        /* CSS untuk hasil prediksi agar teks berwarna hitam */
+        /* CSS untuk hasil prediksi */
         .stSuccess, .stError {
-            color: black !important;
             font-weight: bold !important;  /* Menebalkan font */
             padding: 10px !important;  /* Memberikan padding di sekitar teks */
             border-radius: 8px !important;  /* Membuat sudutnya melengkung */
+            background-color: white !important; /* Warna putih untuk kotakan */
         }
-
-        /* Warna latar belakang tetap sesuai dengan jenis status */
-        .stSuccess {
-            background-color: #28a745 !important;  /* Warna hijau untuk sukses */
-        }
-
-        .stError {
-            background-color: #dc3545 !important;  /* Warna merah untuk error */
+        /* Warna teks di dalam hasil prediksi */
+        .stSuccess > div, .stError > div {
+            color: black !important;  /* Mengatur warna teks menjadi hitam */
         }
     </style>
 """, unsafe_allow_html=True)
+
 
 
 # Judul web
