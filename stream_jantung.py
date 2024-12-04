@@ -55,6 +55,16 @@ st.markdown("""
         .stTextInput label {
             color: black !important;  /* Mengatur warna label input menjadi hitam */
         }
+        /* CSS untuk kolom prediksi agar latar belakangnya putih */
+        .stButton > button {
+            background-color: white !important;
+            color: black !important;
+            border: 2px solid #ddd !important;
+        }
+        /* CSS untuk hasil prediksi agar teks berwarna hitam */
+        .stSuccess, .stError {
+            color: black !important;
+        }
     </style>
 """, unsafe_allow_html=True)
 
