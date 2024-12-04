@@ -51,6 +51,10 @@ st.markdown("""
         h1, h2, h3 {  /* Mengatur warna font judul menjadi hitam */
             color: black !important;
         }
+        /* Menargetkan teks input di dalam kolom untuk menjadi hitam */
+        .stTextInput label {
+            color: black !important;  /* Mengatur warna label input menjadi hitam */
+        }
     </style>
 """, unsafe_allow_html=True)
 
