@@ -34,39 +34,28 @@ def set_background_image(image_url):
 image_url = 'https://raw.githubusercontent.com/Salmangarifatul/Prediksi_Jantung5/main/stethoscope-with-copy-space.jpg'
 set_background_image(image_url)
 
-# Menambahkan CSS untuk teks hitam, kolom input putih, dan judul hitam
 st.markdown("""
     <style>
-        .stApp {
-            color: black !important;  /* Mengatur warna teks di seluruh aplikasi menjadi hitam */
+        .stSuccess {
+            background-color: #28a745 !important;  /* Warna hijau cerah untuk success */
+            color: white !important;  /* Warna teks putih */
+            font-weight: bold !important;
+            padding: 10px !important;
+            border-radius: 8px !important;
         }
-        .css-1v3fvcr {  /* CSS untuk kolom input */
-            background-color: white !important;
-            color: black !important;
+        .stError {
+            background-color: #dc3545 !important;  /* Warna merah cerah untuk error */
+            color: white !important;  /* Warna teks putih */
+            font-weight: bold !important;
+            padding: 10px !important;
+            border-radius: 8px !important;
         }
-        .stTextInput input {
-            background-color: white !important;
-            color: black !important;
-        }
-        h1, h2, h3 {  /* Mengatur warna font judul menjadi hitam */
-            color: black !important;
-        }
-        /* Menargetkan teks input di dalam kolom untuk menjadi hitam */
-        .stTextInput label {
-            color: black !important;  /* Mengatur warna label input menjadi hitam */
-        }
-        /* CSS untuk kolom prediksi agar latar belakangnya putih */
-        .stButton > button {
-            background-color: white !important;
-            color: black !important;
-            border: 2px solid #ddd !important;
-        }
-        /* CSS untuk hasil prediksi agar teks berwarna hitam */
-        .stSuccess, .stError {
-            color: black !important;
+        .stText {
+            font-weight: bold !important;  /* Menebalkan teks */
         }
     </style>
 """, unsafe_allow_html=True)
+
 
 # Judul web
 st.markdown("<h1 style='text-align: center; color: red;'>🫀 Prediksi Penyakit Jantung 🫀</h1>", unsafe_allow_html=True)
