@@ -34,15 +34,6 @@ def set_background_image(image_url):
 image_url = 'https://raw.githubusercontent.com/Salmangarifatul/Prediksi_Jantung5/main/stethoscope-with-copy-space.jpg'
 set_background_image(image_url)
 
-# Menambahkan CSS untuk mengubah warna font global menjadi hitam
-st.markdown("""
-    <style>
-    body {
-        color: black;
-    }
-    </style>
-""", unsafe_allow
-
 # Judul web
 st.markdown("<h1 style='text-align: center; color: red;'>🫀 Prediksi Penyakit Jantung 🫀</h1>", unsafe_allow_html=True)
 st.markdown("<p style='text-align: center;'>Gunakan alat ini untuk memprediksi kemungkinan terkena penyakit jantung berdasarkan data medis.</p>", unsafe_allow_html=True)
