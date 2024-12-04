@@ -46,65 +46,73 @@ st.markdown("### Input Data")
 col1, col2 = st.columns(2)
 
 # Input fields dengan number_input
-with col1:
-    age = st.number_input('Input age', min_value=0, max_value=120, value=50, help="Masukkan usia pasien dalam tahun")
-    
-with col2:
-    anaemia = st.number_input('Input Nilai anaemia', min_value=0, max_value=1, value=0, help="1 jika pasien menderita anemia, 0 jika tidak")
-    
-with col1:
-    creatinine_phosphokinase = st.number_input('Input Nilai creatinine_phosphokinase', min_value=0, value=100, help="Level CPK")
-    
-with col2:
-    diabetes = st.number_input('Input Nilai diabetes', min_value=0, max_value=1, value=0, help="1 jika pasien menderita diabetes, 0 jika tidak")
-    
-with col1:
-    ejection_fraction = st.number_input('Input Nilai ejection_fraction', min_value=0, max_value=100, value=50, help="Persentase ejection fraction")
-    
-with col2:
-    high_blood_pressure = st.number_input('Input Nilai high_blood_pressure', min_value=0, max_value=1, value=0, help="1 jika pasien memiliki tekanan darah tinggi, 0 jika tidak")
-    
-with col1:
-    platelets = st.number_input('Input Nilai platelets', min_value=0, value=300000, help="Jumlah trombosit")
-    
-with col2:
-    serum_creatinine = st.number_input('Input Nilai serum_creatinine', min_value=0.0, value=1.0, help="Level serum creatinine")
-    
-with col1:
-    serum_sodium = st.number_input('Input Nilai serum_sodium', min_value=0, value=135, help="Level serum sodium")
-    
-with col2:
-    sex = st.number_input('Input Nilai sex', min_value=0, max_value=1, value=0, help="1 untuk pria, 0 untuk wanita")
-    
-with col1:
-    smoking = st.number_input('Input Nilai smoking', min_value=0, max_value=1, value=0, help="1 jika pasien merokok, 0 jika tidak")
-    
-with col2:
-    time = st.number_input('Input Nilai time', min_value=0, value=100, help="Waktu follow-up (dalam hari)")
+with col1 :
+    age = st.text_input ('Input age')
 
+with col2 :
+    anaemia = st.text_input ('Input Nilai anaemia')
+
+with col1 :
+    creatinine_phosphokinase = st.text_input ('Input Nilai creatinine_phosphokinase')
+
+with col2 :
+    diabetes = st.text_input ('Input Nilai diabetes')
+
+with col1 :
+    ejection_fraction = st.text_input ('Input Nilai ejection_fraction')
+
+with col2 :
+    high_blood_pressure = st.text_input ('Input Nilai high_blood_pressure')
+
+with col1 :
+    platelets = st.text_input ('Input Nilai platelets')
+
+with col2 :
+    serum_creatinine = st.text_input ('Input Nilai serum_creatinine')
+
+with col1 :
+    serum_sodium = st.text_input ('Input Nilai serum_sodium')
+
+with col2 :
+    sex = st.text_input ('Input Nilai sex')
+
+with col1 :
+    smoking = st.text_input ('Input Nilai smoking')
+
+with col2 :
+    time = st.text_input ('Input Nilai time')
+    
 # Divider
 st.markdown("---")
 
-# Prediksi
+# code untuk prediksi
+jantung_diagnosis = ''
+
+# membuat tombol untuk prediksi
+st.markdown("<h3 style='text-align: center;'>Hasil Prediksi</h3>", unsafe_allow_html=True)
 if st.button('🔍 Prediksi Penyakit Jantung'):
     try:
+        # Konversi input menjadi float dan numerik
         input_data = [
             float(age), 
-            float(anaemia), 
+            int(anaemia.split(':')[0]), 
             float(creatinine_phosphokinase), 
-            float(diabetes), 
+            int(diabetes.split(':')[0]), 
             float(ejection_fraction), 
-            float(high_blood_pressure),
+            int(high_blood_pressure.split(':')[0]),
             float(platelets), 
             float(serum_creatinine), 
             float(serum_sodium), 
-            float(sex), 
-            float(smoking), 
+            int(sex.split(':')[0]), 
+            int(smoking.split(':')[0]), 
             float(time)
         ]
 
+        # Konversi ke array 2D
+        input_data = np.array(input_data).reshape(1, -1)
+
         # Normalisasi data menggunakan scaler
-        input_data_scaled = scaler.transform(np.array(input_data).reshape(1, -1))
+        input_data_scaled = scaler.transform(input_data)
 
         # Prediksi menggunakan model
         jantung_prediction = jantung_model.predict(input_data_scaled)
@@ -113,6 +121,9 @@ if st.button('🔍 Prediksi Penyakit Jantung'):
             st.success('✅ Pasien terkena penyakit jantung.')
         else:
             st.success('❌ Pasien tidak terkena penyakit jantung.')
+
+        # Tampilkan hasil
+        st.success(jantung_diagnosis)
 
     except ValueError as e:
         st.error(f"Input tidak valid: {e}")
