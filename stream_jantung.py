@@ -13,15 +13,13 @@ except Exception as e:
     st.error(f"Error loading model or scaler: {e}")
     st.stop()
 
-# Fungsi untuk menambahkan latar belakang menggunakan path relatif
-def set_background_image(image_path):
+# Fungsi untuk menambahkan latar belakang menggunakan URL gambar dari GitHub
+def set_background_image(image_url):
     try:
-        with open(image_path, "rb") as image_file:
-            encoded_image = base64.b64encode(image_file.read()).decode()
         st.markdown(f"""
         <style>
         .stApp {{
-            background-image: url(data:image/jpg;base64,{encoded_image});
+            background-image: url({image_url});
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
@@ -29,24 +27,21 @@ def set_background_image(image_path):
         }}
         </style>
         """, unsafe_allow_html=True)
-    except FileNotFoundError:
-        st.error("Image file not found at the specified path.")
     except Exception as e:
         st.error(f"An error occurred while setting background: {e}")
 
-# Path ke gambar latar belakang relatif terhadap lokasi skrip
-current_dir = Path(__file__).parent
-image_path = current_dir / 'static' / 'stethoscope-with-copy-space.jpg'
-set_background_image(str(image_path))
+# URL gambar di GitHub
+image_url = 'https://raw.githubusercontent.com/Salmangarifatul/Prediksi_Jantung5/main/stethoscope-with-copy-space.jpg'
+set_background_image(image_url)
 
-# Mengatur warna font seluruh aplikasi menjadi hitam
+# Menambahkan CSS untuk mengubah warna font global menjadi hitam
 st.markdown("""
     <style>
-        body {
-            color: black !important;
-        }
+    body {
+        color: black;
+    }
     </style>
-""", unsafe_allow_html=True)
+""", unsafe_allow
 
 # Judul web
 st.markdown("<h1 style='text-align: center; color: red;'>🫀 Prediksi Penyakit Jantung 🫀</h1>", unsafe_allow_html=True)
