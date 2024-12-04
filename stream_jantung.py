@@ -5,11 +5,11 @@ import base64
 
 # Membaca model dan scaler
 try:
-    jantung_model = pickle.load(open('D:/Studi Independent 7 Mojadiapp/Coba/Jantung_model.sav', 'rb'))
-    scaler = pickle.load(open('D:/Studi Independent 7 Mojadiapp/Coba/scaler.sav', 'rb'))
+    jantung_model = pickle.load(open('Jantung_model.sav', 'rb'))
+    scaler = pickle.load(open('scaler.sav', 'rb'))
 except Exception as e:
     st.error(f"Error loading model or scaler: {e}")
-    st.stop()
+    st.stop()
 
 # Fungsi untuk menambahkan latar belakang
 def set_background_image(image_path):
