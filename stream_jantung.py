@@ -34,7 +34,7 @@ def set_background_image(image_url):
 image_url = 'https://raw.githubusercontent.com/Salmangarifatul/Prediksi_Jantung5/main/stethoscope-with-copy-space.jpg'
 set_background_image(image_url)
 
-# Menambahkan CSS untuk teks hitam, kolom input putih, dan judul hitam
+# Menambahkan CSS untuk mengatur tampilan seluruh aplikasi
 st.markdown("""
     <style>
         .stApp {
@@ -64,9 +64,22 @@ st.markdown("""
         /* CSS untuk hasil prediksi agar teks berwarna hitam */
         .stSuccess, .stError {
             color: black !important;
+            font-weight: bold !important;  /* Menebalkan font */
+            padding: 10px !important;  /* Memberikan padding di sekitar teks */
+            border-radius: 8px !important;  /* Membuat sudutnya melengkung */
+        }
+
+        /* Warna latar belakang tetap sesuai dengan jenis status */
+        .stSuccess {
+            background-color: #28a745 !important;  /* Warna hijau untuk sukses */
+        }
+
+        .stError {
+            background-color: #dc3545 !important;  /* Warna merah untuk error */
         }
     </style>
 """, unsafe_allow_html=True)
+
 
 # Judul web
 st.markdown("<h1 style='text-align: center; color: red;'>🫀 Prediksi Penyakit Jantung 🫀</h1>", unsafe_allow_html=True)
