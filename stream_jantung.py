@@ -62,15 +62,16 @@ st.markdown("""
             border: 2px solid #ddd !important;
         }
         /* CSS untuk hasil prediksi */
-        .stSuccess, .stError {
-            font-weight: bold !important;  /* Menebalkan font */
-            padding: 10px !important;  /* Memberikan padding di sekitar teks */
-            border-radius: 8px !important;  /* Membuat sudutnya melengkung */
-            background-color: black !important; /* Warna putih untuk kotakan */
+        div.stAlert {
+            font-weight: bold !important; /* Menebalkan teks */
+            padding: 10px !important; /* Memberikan padding */
+            border-radius: 8px !important; /* Membuat sudut melengkung */
+            background-color: white !important; /* Mengubah latar belakang ke putih */
         }
+
         /* Warna teks di dalam hasil prediksi */
-        .stSuccess > div, .stError > div {
-            color: black !important;  /* Mengatur warna teks menjadi hitam */
+        div.stAlert > div {
+            color: black !important; /* Mengubah teks menjadi hitam */
         }
     </style>
 """, unsafe_allow_html=True)
